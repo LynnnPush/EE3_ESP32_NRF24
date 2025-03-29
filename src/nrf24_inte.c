@@ -155,6 +155,7 @@ static void nrf_read_payload(uint8_t *data, size_t length) {
     };
     gpio_set_level(nrf_pins.csn_pin, 0); // CSN low to start communication
     spi_device_transmit(spi, &t);  // Send read payload command
+    memset (&t, 0, sizeof(t));
 
     t.length = length * 8;
     t.tx_buffer = NULL;
@@ -333,7 +334,7 @@ void rx_task(void *pvParameters) {
     uint8_t rx_buffer[32];
     while(1) {
         if (nrf_data_available()) {
-            nrf_read_data(rx_buffer, 32);
+            nrf_read_data(rx_buffer,32);
             rx_buffer[31] = '\0'; // Ensure null termination
             printf("Received data: %s\n", rx_buffer);
         }

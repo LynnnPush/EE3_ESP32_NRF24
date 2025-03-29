@@ -28,7 +28,7 @@ void app_main(void) {
     
     // Print current configuration
     nrf_check_configuration();
-    
+
     // Start the appropriate task based on mode
     if (mode == NRF_MODE_TX) {
         xTaskCreate(tx_task, "tx_task", 2048, NULL, 5, NULL);
