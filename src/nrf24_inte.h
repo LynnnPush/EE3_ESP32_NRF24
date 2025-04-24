@@ -1,3 +1,14 @@
+/**
+ * @title NRF24L01 Transceiver Application
+ * @file main.c
+ * @author Shanghong Lin (BUILD1)
+ * @original Feiyang Zheng (GAME2)
+ * @AI Use Claude3.7 Sonnet for reformatting the code
+ * @version 0.1
+ * @date 2025-04-24
+ * 
+ */
+
 #ifndef NRF24_INTE_H
 #define NRF24_INTE_H
 
