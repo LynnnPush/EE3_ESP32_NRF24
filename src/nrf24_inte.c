@@ -348,6 +348,12 @@ void rx_task(void *pvParameters) {
             nrf_read_data(rx_buffer,32);
             rx_buffer[31] = '\0'; // Ensure null termination
             printf("Received data: %s\n", rx_buffer);
+
+            // Forward received msg from PIC18 to ESP32-rec via wifi
+            uint8_t msg[32];
+            memcpy(msg, rx_buffer, 32);
+            
+            
         }
         vTaskDelay(pdMS_TO_TICKS(100)); // Check every 100ms
     }
